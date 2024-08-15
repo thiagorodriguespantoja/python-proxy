@@ -1,10 +1,10 @@
 import sys
 import os
 
-# Adiciona o diretório "app" ao caminho de pesquisa do Python
+# Adiciona o caminho absoluto para o diretório 'app'
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app')))
 
-# Agora você pode importar a função login_autenticacao
+# Importe a função login_autenticacao do auth.py no diretório app
 from auth import login_autenticacao
 
 def test_auth():
