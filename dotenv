@@ -1,0 +1,11 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+proxy_host = os.getenv('PROXY1_HOST')
+proxy_port = os.getenv('PROXY1_PORT')
+proxy_username = os.getenv('PROXY1_USERNAME')
+proxy_password = os.getenv('PROXY1_PASSWORD')
+
+proxy_url = f"socks5://{proxy_username}:{proxy_password}@{proxy_host}:{proxy_port}"
