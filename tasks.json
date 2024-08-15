@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Celery",
+      "type": "shell",
+      "command": "celery -A tasks worker --loglevel=info",
+      "problemMatcher": []
+    }
+  ]
+}
