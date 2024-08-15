@@ -24,6 +24,11 @@ Além disso, o projeto utiliza Docker Compose para gerenciar facilmente os conta
 ├── /app
 │   ├── __init__.py               # Indica que 'app' é um pacote Python
 │   ├── auth.py                   # Contém a função de autenticação 'login_autenticacao'
+│   ├── selenium_auth.py          # Configura o Selenium com proxies e executa a automação de login
+│   ├── tasks.py                  # Integração das tarefas do Celery com a automação Selenium
+│   ├── utils.py                  # Funções utilitárias, como o carregamento de proxies
+│   ├── main.py                   # Arquivo principal para iniciar o Celery ou executar a autenticação manualmente
+│   ├── proxies.json              # Arquivo que contém os dados dos proxies
 │
 ├── /tests
 │   ├── __init__.py               # Indica que 'tests' é um pacote Python
@@ -82,18 +87,18 @@ PROXY_LIST=app/proxies.json
 
 Isso irá configurar e rodar o Selenium em modo headless e o Redis para o Celery.
 
-### 4. Executar o Celery
+### 4. Executar o Celery e o Processo de Autenticação
 
-Celery é responsável por executar as tarefas de autenticação de forma assíncrona. Você pode rodá-lo localmente ou através do Docker Compose.
+O arquivo `main.py` permite executar tanto o Celery quanto o processo de autenticação manual com proxies.
 
-- Localmente:
+- **Iniciar o Celery Worker**:
   ```bash
-  celery -A tasks worker --loglevel=info
+  python app/main.py celery
   ```
 
-- Com Docker Compose:
+- **Executar o Processo de Autenticação Manualmente**:
   ```bash
-  docker-compose run app celery -A tasks worker --loglevel=info
+  python app/main.py auth
   ```
 
 ### 5. Testar o Projeto
@@ -144,3 +149,4 @@ Sinta-se à vontade para fazer fork deste repositório, abrir pull requests ou r
 ### Finalidade do Projeto
 
 O objetivo principal deste projeto é fornecer uma maneira automatizada de autenticar no Instagram utilizando proxies brasileiros, mesmo quando hospedado em servidores fora do Brasil. Isso é crucial para evitar problemas de bloqueio de login devido à discrepância de localização geográfica. Com o uso do Celery para agendamento de tarefas e a rotação de proxies, o sistema se mantém robusto e eficiente para operações prolongadas.
+
