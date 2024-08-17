@@ -5,12 +5,16 @@ services:
     ports:
       - "4444:4444"
     restart: always
+    networks:
+      - default
 
   redis:
     image: redis:alpine
     ports:
       - "6379:6379"
     restart: always
+    networks:
+      - default
 
   app:
     build: .
@@ -23,5 +27,12 @@ services:
       - PROXY_LIST=/app/proxies.json
     command: celery -A tasks worker --loglevel=info
     restart: always
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
+
 
 
