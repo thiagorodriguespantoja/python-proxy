@@ -5,12 +5,19 @@ services:
     ports:
       - "4444:4444"
 
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
   app:
     build: .
     volumes:
       - .:/app
     depends_on:
       - selenium
+      - redis
     environment:
       - PROXY_LIST=/app/proxies.json
     command: celery -A tasks worker --loglevel=info
+

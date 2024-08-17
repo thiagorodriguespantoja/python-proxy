@@ -1,11 +1,7 @@
-import sys
-import os
+from auth.auth import autenticar_usuario  # Certifique-se de que o caminho seja correto
 
-# Adiciona o caminho absoluto para o diretório 'app'
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app')))
-
-# Importe a função login_autenticacao do auth.py
-from auth import login_autenticacao
-
-def test_auth():
-    assert login_autenticacao("user", "pass", 1) == True
+def test_autenticacao():
+    usuario = "14ad9a9ccd37c"
+    senha = "996f9e5a18"
+    resultado = autenticar_usuario(usuario, senha)
+    assert resultado is True
