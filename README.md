@@ -1,18 +1,17 @@
-
-# Python Proxy Authentication Project
+# Python Proxy Automation with Selenium and Celery
 
 ## Descrição do Projeto
 
-Este projeto foi criado para automatizar o processo de autenticação no Instagram utilizando proxies brasileiros em um ambiente Python. O sistema permite rodar autenticações automatizadas em modo headless com Selenium, garantindo que o IP seja localizado no Brasil, independentemente da localização do servidor onde o código está sendo executado. O uso de proxies é essencial para evitar bloqueios de login ao acessar contas do Instagram hospedadas em servidores fora do país de origem.
+Este projeto foi criado para automatizar o processo de autenticação no Instagram utilizando proxies brasileiros em um ambiente Python. O sistema permite realizar autenticações automatizadas em modo headless com Selenium, garantindo que o IP seja localizado no Brasil, independentemente da localização do servidor onde o código está sendo executado. O uso de proxies é essencial para evitar bloqueios de login ao acessar contas do Instagram hospedadas em servidores fora do país de origem.
 
-Além disso, o projeto utiliza Docker Compose para gerenciar facilmente os containers, e Celery para o agendamento de tarefas assíncronas que executam o processo de autenticação. Esse setup permite a rotação de proxies em intervalos de tempo especificados, proporcionando uma maior segurança e flexibilidade na automação.
+O projeto utiliza Docker Compose para gerenciar facilmente os containers, e Celery para o agendamento de tarefas assíncronas que executam o processo de autenticação. Esse setup permite a rotação de proxies em intervalos de tempo especificados, proporcionando uma maior segurança e flexibilidade na automação.
 
 ## Tecnologias Utilizadas
 
 - **Python 3.12**
 - **Selenium** (Modo headless para automação de browser)
 - **Celery** (Tarefas assíncronas)
-- **Docker Compose** (Orquestração de containers)
+- **Docker e Docker Compose** (Orquestração de containers)
 - **Redis** (Broker de mensagens para o Celery)
 - **Proxies HTTP/SOCKS5** (Localizados no Brasil)
 
@@ -35,9 +34,10 @@ Além disso, o projeto utiliza Docker Compose para gerenciar facilmente os conta
 │   └── test_auth.py              # Contém o teste da função 'login_autenticacao'
 │
 ├── /logs                         # Diretório para armazenamento de logs
+│   └── selenium_logs.log         # Arquivo de log para monitorar eventos do Selenium
 │
-├── /screenshots                  # Diretório para armazenar capturas de tela tiradas pelo Selenium
-│   └── proxy_test.png
+├── /output                       # Diretório para armazenar capturas de tela tiradas pelo Selenium
+│   └── screenshot_instagram.png  # Screenshot após o login no Instagram
 │
 ├── .env                          # Variáveis de ambiente (não incluído no repositório)
 ├── config.py                     # Arquivo de configuração do projeto
