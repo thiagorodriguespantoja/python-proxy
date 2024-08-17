@@ -2,7 +2,11 @@ from celery import Celery
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-app = Celery('tasks', broker='redis://redis:6379/0')
+# Configuração do Celery
+app = Celery('tasks')
+
+# Carrega as configurações do arquivo celeryconfig.py
+app.config_from_object('celeryconfig')
 
 @app.task
 def acessar_instagram():
@@ -22,4 +26,5 @@ def acessar_instagram():
     print(f"Título da página: {driver.title}")
 
     driver.quit()
+
 

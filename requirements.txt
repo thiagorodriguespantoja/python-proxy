@@ -2,3 +2,5 @@ celery
 selenium
 requests
 python-dotenv
+redis
+
