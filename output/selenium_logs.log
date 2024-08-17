@@ -1,0 +1,11 @@
+2024-08-17 20:01:21,462 - INFO - ====== WebDriver manager ======
+2024-08-17 20:01:22,637 - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-17 20:01:22,901 - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-17 20:01:23,179 - INFO - Driver [C:\Users\thiag\.wdm\drivers\chromedriver\win64\127.0.6533.119\chromedriver-win32/chromedriver.exe] found in cache
+2024-08-17 20:01:24,400 - INFO - Navegador iniciado com sucesso.
+2024-08-17 20:01:31,389 - INFO - Página do Instagram carregada com sucesso.
+2024-08-17 20:01:31,397 - INFO - Página do Instagram carregada com sucesso!
+2024-08-17 20:01:31,442 - INFO - Screenshot salvo como output/screenshot_instagram.png. Verifique a imagem para garantir que a página foi carregada corretamente.
+2024-08-17 20:01:31,454 - INFO - Campo de login encontrado com sucesso!
+2024-08-17 20:01:31,658 - INFO - Tentativa de login enviada.
+2024-08-17 20:01:33,732 - INFO - Navegador encerrado.
