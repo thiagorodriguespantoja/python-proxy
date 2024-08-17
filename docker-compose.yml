@@ -4,11 +4,13 @@ services:
     image: selenium/standalone-chrome:latest
     ports:
       - "4444:4444"
+    restart: always
 
   redis:
     image: redis:alpine
     ports:
       - "6379:6379"
+    restart: always
 
   app:
     build: .
@@ -20,4 +22,6 @@ services:
     environment:
       - PROXY_LIST=/app/proxies.json
     command: celery -A tasks worker --loglevel=info
+    restart: always
+
 
